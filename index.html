@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="navigation">
-        <a href="temp.html" class="analysis-button">Text Analysis Tool →</a>
-    </div>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="temp.html" class="analysis-button">Text Analysis Tool →</a></li>
+        </ul>
+    </nav>
     <section id="about">
         <div class="banner">
             <img src="assets/banner.jpg" alt="Banner Image" class="banner-pic">
@@ -39,21 +46,46 @@
             <span id="bangalore" style="cursor:pointer">Birth Place : Bangalore 👇</span>
         </div>
         <div id="photo-div" style="display:none; padding: 20px;">
-            <div class="photo-container">
-                <figure>
-                    <img src="assets/shivasamudra.jpg" alt="Shivasamudra Falls" style="width:500px;">
-                    <figcaption>Shivasamudra Falls (My second favorite place near Bangalore)</figcaption>
-                </figure>
-                <figure>
-                    <img src="assets/hsr lake.jpeg" alt="HSR Lake" style="width:500px;">
-                    <figcaption>Lake Closest to my house and birthplace</figcaption>
-                </figure>
+            <div class="slideshow-container">
+                <div class="slide">
+                    <img src="assets/shivasamudra.jpg" alt="Shivasamudra Falls">
+                    <div class="caption">Shivasamudra Falls (My second favorite place near Bangalore)</div>
+                </div>
+                <div class="slide">
+                    <img src="assets/hsr lake.jpeg" alt="HSR Lake">
+                    <div class="caption">Lake Closest to my house and birthplace</div>
+                </div>
+                <div class="slide">
+                    <img src="assets/bang3.jpg" alt="Bangalore View 3">
+                    <div class="caption">Another beautiful view of Bangalore</div>
+                </div>
+                <div class="slide">
+                    <img src="assets/bang4.jpg" alt="Bangalore View 4">
+                    <div class="caption">One more stunning perspective of Bangalore</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
         </div>
         
-        
         <script>
-            
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex-1].style.display = "block";
+            }
         </script>
         
     </section>
